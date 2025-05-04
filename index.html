@@ -66,23 +66,23 @@
             border-radius: 8px;
             border: 1px solid #ccc;
             background: #f9f9f9;
-            cursor: zoom-in; /* 增加放大鏡游標 */
-            transition: transform 0.3s ease-in-out; /* 更平滑的過渡效果 */
+            cursor: zoom-in;
+            transition: transform 0.3s ease-in-out;
         }
         .drug-item img:hover {
-            transform: scale(4); /* 輕微放大懸停效果 */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 更柔和的陰影 */
+            transform: scale(4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .modal {
-            display: none; /* 預設隱藏 */
-            position: fixed; /* 固定在螢幕上 */
-            z-index: 1000; /* 確保在其他元素之上 */
+            display: none;
+            position: fixed;
+            z-index: 1000;
             left: 0;
             top: 0;
-            width: 100%; /* 寬度 100% */
-            height: 100%; /* 高度 100% */
-            overflow: auto; /* 必要時啟用滾動 */
-            background-color: rgba(0,0,0,0.9); /* 黑色背景，帶透明度 */
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
         }
         .modal-content {
             margin: auto;
@@ -131,7 +131,7 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">術前停藥提醒小幫手</h1>
+    <h1 style="text-align:center;">術前停藥提醒小幫手</h1>
     <div id="chatbox">
         <input type="text" id="searchInput" placeholder="🔍 搜尋藥品名稱（如：波立維、plavix）" oninput="searchDrugs()">
         <button class="btn" style="background:#888" onclick="showAllDrugs()">🗂️ 我不確定藥名，瀏覽全部藥品</button>
@@ -140,7 +140,7 @@
     </div>
     <div class="footer">
         本工具由臺大醫院新竹分院麻醉部製作，用於病患衛教用途。<br>
-        <span style="color:red; font-weight:bold;">此類藥物的停用，請務必與您的手術醫師討論後再執行。
+        <span style="color:red; font-weight:bold;">此類藥物的停用，請務必與您的手術醫師討論後再執行。</span>
     </div>
     <div id="imageModal" class="modal" onclick="this.style.display='none'">
         <span class="close-button">&times;</span>
@@ -182,7 +182,7 @@ const drugs = {
         { name: "farxiga", display: "Dapagliflozin（Farxiga®，捷糖安）", img: "https://imgur.com/cfdwxTi.png" },
         { name: "xigduo", display: "Dapagliflozin/Metformin XR（Xigduo®，喜妥糖）", img: "https://imgur.com/NJ6zMSD.png" },
         { name: "qtern", display: "Dapagliflozin/Saxagliptin（Qtern®，捷利妥）", img: "https://imgur.com/40wnbhg.png" },
-        { name: "qternmet xr", display: "Dapagliflozin/Saxagliptin/Metformin XR（Qternmet® XR，捷利妥複方）", img: "https://imgur.com/Gv4QP6T.png " },
+        { name: "qternmet xr", display: "Dapagliflozin/Saxagliptin/Metformin XR（Qternmet® XR，捷利妥複方）", img: "https://imgur.com/Gv4QP6T.png\n" },
         { name: "jardiance", display: "Empagliflozin（Jardiance®，沛妥糖）", img: "https://imgur.com/8x87vYV.png" },
         { name: "synjardy", display: "Empagliflozin/Metformin（Synjardy®，沛妥糖複方）", img: "https://imgur.com/RHvBTgK.png" },
         { name: "synjardy xr", display: "Empagliflozin/Metformin XR（Synjardy® XR，沛妥糖緩釋複方）", img: "https://imgur.com/KvArm7u.png" },
@@ -223,13 +223,13 @@ function searchDrugs() {
         const resultBox = document.createElement('div');
         resultBox.id = 'searchResults';
         document.getElementById('chatbox').appendChild(resultBox);
-     }
+    }
 
     const resultBox = document.getElementById('searchResults');
-    resultBox.innerHTML = ''; // 清空之前的搜尋結果
+    resultBox.innerHTML = '';
 
     if (!keyword) {
-        return; // 如果關鍵字為空，清空結果後直接返回
+        return;
     }
 
     resultBox.innerHTML += `<div class='msg bot'>以下為搜尋結果：</div>`;
@@ -250,7 +250,6 @@ function searchDrugs() {
         });
     });
 
-    // 如果沒有找到任何結果，可以顯示 "沒有找到相關藥品" 的訊息
     if (resultBox.innerHTML === `<div class='msg bot'>以下為搜尋結果：</div>`) {
         resultBox.innerHTML += `<div class='msg bot'>沒有找到相關藥品。</div>`;
     }
@@ -354,5 +353,3 @@ function zoomImage(img) {
 </script>
 </body>
 </html>
-
-
